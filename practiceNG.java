@@ -167,16 +167,25 @@ public class practiceNG
 	}
 	
 	@Test (priority = 10)
-	public void horizontalSlide()
+	public void horizontalSlide() throws InterruptedException
 	{
 		driver.navigate().to("http://the-internet.herokuapp.com/");
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,200)", "");
 		driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[21]/a")).click();
 		
+		WebElement slider = driver.findElement(By.xpath(".//*[@id=\'content\']/div/div/input"));
+		Actions slide = new Actions(driver);
+		slide.click(slider).build().perform();
+		Thread.sleep(1000);
 		
+		for (int i = 0; i < 10; i++)
+		{
+		    slide.sendKeys(Keys.ARROW_RIGHT).build().perform();
+		    //System.out.println("Slider offset value : " + driver.findElement(By.id("range")).getText() + "\n");
+		    Thread.sleep(1000);
+		}
 		System.out.println("Slider offset value : " + driver.findElement(By.id("range")).getText() + "\n");
-		
 	}
 	
 	@AfterTest

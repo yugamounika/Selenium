@@ -90,23 +90,16 @@ public class testNG
 	@Test (priority = 5)
 	public void signoutfunc()
 	{	
-		//Scroll down
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollBy(0,100)", "");	// or	jse.executeScript("scroll(0, 250);");
-													// or	((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);		
+		//Mouse over for account
+		Actions logout = new Actions(driver); 
+		WebElement sigout = driver.findElement(By.xpath("//*[@id=\"nav-link-accountList\"]/span[2]"));
+		logout.moveToElement(sigout).moveToElement(driver.findElement(By.xpath("//*[@id=\"nav-item-signout\"]/span"))).click().build().perform();
 		
-		//Scroll for signin button
-		Actions signout = new Actions(driver);
-		WebElement forsignout = driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-2 > span"));
-		signout.moveToElement(forsignout).moveToElement(driver.findElement(By.cssSelector("#nav-item-signout > span"))).click().build().perform();
-	
-		//driver.findElement(By.xpath("//*[@id=\"nav-logo\"]/a[1]/span[1]")).click();
-		
-		//driver.findElement(By.cssSelector("#nav-link-accountList > span.nav-line-2 > span")).click();
-
-		//Signout
-		driver.findElement(By.cssSelector("#nav-item-signout > span")).click();
-	
+		//Scroll down for signing out
+		JavascriptExecutor signoutscroll = (JavascriptExecutor)driver;
+		signoutscroll.executeScript("window.scrollBy(0,250)", "");
+		//Click on Signout
+		driver.findElement(By.xpath("//*[@id=\"nav-item-signout\"]/span")).click();
 	}
 	
 	@AfterTest

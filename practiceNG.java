@@ -133,19 +133,20 @@ public class practiceNG
 		WebElement element1 = driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[1]/img"));
 		Actions hover1 = new Actions(driver);
 		hover1.moveToElement(element1).build().perform();
-        driver.findElement(By.linkText("View profile")).click();
-        //User2
-        driver.navigate().back();
-        WebElement element2 = driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[2]/img"));
-        Actions hover2 = new Actions(driver);
-        hover2.moveToElement(element2).build().perform();
-        driver.findElement(By.linkText("View profile")).click();
-        //User3
-        driver.navigate().back();
-        WebElement element3 = driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[3]/img"));
-        Actions hover3 = new Actions(driver);
-        hover3.moveToElement(element3).build().perform();
-        driver.findElement(By.linkText("View profile")).click();
+        	driver.findElement(By.linkText("View profile")).click();
+        	//User2
+        	driver.navigate().back();
+        	WebElement element2 = driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[2]/img"));
+        	Actions hover2 = new Actions(driver);
+        	hover2.moveToElement(element2).build().perform();
+        	driver.findElement(By.linkText("View profile")).click();
+        	//User3
+        	driver.navigate().back();
+        	WebElement element3 = driver.findElement(By.xpath("//*[@id=\"content\"]/div/div[3]/img"));
+        	Actions hover3 = new Actions(driver);
+        	hover3.moveToElement(element3).build().perform();
+        	driver.findElement(By.linkText("View profile")).click();
+		//Redundancy in code can be avoided using @DataProvider
 	}
 	
 	@Test (priority = 8)

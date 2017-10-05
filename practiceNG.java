@@ -30,16 +30,7 @@ public class practiceNG
 		driver.manage().window().maximize();
 		driver.get("http://the-internet.herokuapp.com/");
 	}
-	/*
-	@BeforeTest
-	public void start()
-	{
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Arjun\\Desktop\\Amulya\\Selenium\\chromedriver_win32\\chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("http://admin:admin@the-internet.herokuapp.com/basic_auth");
-	}
-	*/
+	
 /*
 	@Test (priority = 1)
 	public void basicAuth()

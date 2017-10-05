@@ -182,7 +182,7 @@ public class practiceNG
 	@AfterTest
 	public void close()
 	{
-		//driver.quit();
+		driver.quit();
 	}
 	
 }

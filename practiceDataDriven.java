@@ -41,9 +41,8 @@ public class practiceDataDriven
 		Actions hover = new Actions(driver);
 		hover.moveToElement(element).build().perform();
 		Thread.sleep(1000);
-        driver.findElement(By.linkText("View profile")).click();
-        driver.navigate().back();
-        //driver.quit();
+        	driver.findElement(By.linkText("View profile")).click();
+        	driver.navigate().back();
 	}
 	
 	@AfterTest

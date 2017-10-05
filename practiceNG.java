@@ -40,13 +40,10 @@ public class practiceNG
 		//Switching to 'Alert'
 		Alert alertPopUp = driver.switchTo().alert();
 		alertPopUp = wait.until(ExpectedConditions.alertIsPresent());
-		//alertPopUp.authenticateUsing(new UserAndPassword("admin", "admin"));
+		alertPopUp.authenticateUsing(new UserAndPassword("admin", "admin"));
 		//alertPopUp.setCredentials(new UserAndPassword("admin", "admin"));
-		alertPopUp.sendKeys("admin");
-		alertPopUp.sendKeys("admin");
 		alertPopUp.accept();
 		//driver.switchTo().alert().accept();
-		//driver.navigate().back();
 	}
 */
 	@Test (priority = 2)
@@ -147,12 +144,12 @@ public class practiceNG
 		jse.executeScript("window.scrollBy(0,200)", "");
 		driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[23]/a")).click();
 		Thread.sleep(3000);
-		//*[@id="page-footer"]/div/div/a
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
-		//JavascriptExecutor jse = (JavascriptExecutor)driver;
-		//jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-		driver.findElement(By.xpath("//*[@id=\"page-footer\"]/div/div/a")).click();
-		
+		/*
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+		*/
+		driver.findElement(By.xpath("//*[@id=\"page-footer\"]/div/div/a")).click();	
 	}
 	
 	@Test (priority = 9)

@@ -104,17 +104,16 @@ public class practiceNG
 		driver.findElement(By.xpath("//*[@id=\"login\"]/button/i")).click();
 		driver.findElement(By.xpath(".//*[@id='content']/div/a/i")).click();
 	}
-	/*
+	
 	@Test (priority = 6)
 	public void forgotPassword()
 	{
 		driver.navigate().to("http://the-internet.herokuapp.com/");
 		driver.findElement(By.cssSelector("#content > ul > li:nth-child(17) > a")).click();
-		driver.findElement(By.id("email")).sendKeys("yugamounika.ch@gmail.com");
+		driver.findElement(By.id("email")).sendKeys("*********@gmail.com");
 		driver.findElement(By.id("form_submit")).click();
 	}
-	*/
-	
+		
 	@Test (priority = 7)
 	public void hovers()
 	{

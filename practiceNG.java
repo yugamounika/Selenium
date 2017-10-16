@@ -143,13 +143,27 @@ public class practiceNG
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,200)", "");
 		driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[23]/a")).click();
+		Thread.sleep(1000);
+		
+		// Fetch starting time
+		long startTime = System.currentTimeMillis();
+		
+		WebElement element = driver.findElement(By.xpath("//*[@id=\"page-footer\"]/div/div/a"));
+		
+		while(element.isDisplayed() && (System.currentTimeMillis()-startTime) < 20000)
+		{
+	        	JavascriptExecutor jse2= (JavascriptExecutor) driver;
+			jse2.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+		}
 		Thread.sleep(3000);
-		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
-		/*
-		JavascriptExecutor jse = (JavascriptExecutor)driver;
-		jse.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-		*/
-		driver.findElement(By.xpath("//*[@id=\"page-footer\"]/div/div/a")).click();	
+		
+		/* Click on footer only if time spent is more than 25000 milliSecs(while 20000 + Thread 3000)
+		 * i.e if while loop do not terminate after 20000 milliSecs
+		 */
+		if( (System.currentTimeMillis()-startTime) >30000 )
+			driver.findElement(By.xpath("//*[@id=\"page-footer\"]/div/div/a")).click();
+		else
+			System.out.println("Terminated Infinite scroll after 20secs\n");
 	}
 	
 	@Test (priority = 9)
